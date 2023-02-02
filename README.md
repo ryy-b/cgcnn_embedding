@@ -10,7 +10,18 @@ visualize the crystal graph embedding of [CGCNN](#CGCNN) using t-SNE with value 
 
 # Dataset
 
-CIF from Materials Project [https://materialsproject.org/]
+CIF downloaded from the Materials Project [https://materialsproject.org/] with the following search criteria
+
+```
+data = mpr.query(
+                 criteria={
+                           "elements": {"$nin": ["He"]},
+                           "nelements": {"$gt": 3},
+                           "formation_energy_per_atom" : {"$gt" : -3},
+                           },
+                 properties=["cif", "formation_energy_per_atom"]
+                )
+```
 
 <br>
 
